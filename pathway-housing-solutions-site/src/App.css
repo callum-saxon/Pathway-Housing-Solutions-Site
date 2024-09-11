@@ -1,0 +1,638 @@
+/* General styles */
+body {
+  font-family: 'Open Sans', Arial, sans-serif; /* Use Open Sans as the primary font */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.App {
+  text-align: center;
+}
+
+.header {
+  background-color: rgba(199, 199, 199, 0.5); /* Semi-transparent */
+  width: 75%; /* 80% of the full width */
+  margin: 20px auto; /* Center the header */
+  padding: 0.25rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute; /* Position it over the hero section */
+  border-radius: 20px;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10; /* Ensure it stays above other content */
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  height: 65px; /* Adjust as needed */
+  width: auto;
+}
+
+.nav-bar {
+  flex-grow: 1;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  justify-content: center; /* Center the nav links */
+  gap: 1.5rem;
+}
+
+.nav-links li {
+  display: inline;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: whitesmoke;
+}
+
+.download-btn {
+  padding: 0.5rem 1rem;
+  background-color: #0FABE6;
+  height: 50px;
+  width: 150px;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+}
+
+/* Hero section */
+.hero {
+  height: 100vh; /* Make it full height of the viewport */
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-image {
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1; /* Ensure it stays behind the header */
+}
+
+.hero-image::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4); /* Adjust the opacity for darkness */
+  z-index: 1; /* Make sure the overlay stays above the image */
+}
+
+.hero-text {
+  position: relative;
+  z-index: 1;
+  color: white;
+  text-align: center;
+  padding-top: 20vh; /* Push the text down to make it more centered */
+}
+
+.hero-text h1 {
+  font-size: 3.75rem;
+  font-weight: 500;
+  margin-bottom: 2rem; /* Increase space between h1 and p */
+}
+
+.hero-text p {
+  font-size: 1.15rem;
+  font-weight: 400;
+  margin-bottom: 3rem; /* Increase space between p and scroll-indicator */
+}
+
+.scroll-indicator {
+  font-size: 2rem;
+  background-color: white;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 85px;
+  border-radius: 50px / 50px; /* Flat sides, rounded top and bottom */
+  border: 2px solid white; /* White border */
+  margin: 0 auto;
+  margin-top: 4rem; /* Add more space above the scroll indicator */
+}
+
+.scroll-indicator span {
+  font-size: 1.5rem; /* Adjust the size of the arrow */
+}
+
+/* Hero Stats */
+.hero-stats {
+  display: flex;
+  justify-content: center; /* Center stats horizontally */
+  align-items: flex-start; /* Align items to the top */
+  margin-top: auto;
+  padding: 2rem 0;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  z-index: 2;
+  color: white;
+  text-align: center;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  justify-content: flex-start; /* Ensure the h2 stays at the top */
+  align-items: center; /* Center-align the content */
+  flex-grow: 1;
+  flex-basis: 0;
+  padding: 0 1rem; /* Adjust padding between stats */
+  max-width: 400px;
+  min-height: 150px; /* Set a minimum height to make all stats equal */
+}
+
+.stat h2 {
+  font-size: 2.5rem;
+  font-weight: 400;
+  margin: 0;
+}
+
+.stat p {
+  font-size: 1rem;
+  margin: 0.5rem 0 0;
+}
+
+/* About Us Section */
+.about-us {
+  padding: 4rem 2rem;
+  text-align: left;
+  margin-bottom: 75px;
+}
+
+.about-us h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-align: left;
+  color: #333;
+}
+
+.about-content-wrapper {
+  display: flex;
+  justify-content: flex-end; /* Move the content (text + media) to the right */
+  margin-right: 200px;
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column; /* Stack the text above the media */
+  align-items: flex-start; /* Align everything to the left within the right-aligned container */
+  gap: 2rem;
+  max-width: 1100px; /* Set a max width for the content */
+  margin-right: 0; /* Align content to the right */
+}
+
+.about-text {
+  text-align: left;
+  width: 100%; /* Make sure the text takes the full width */
+}
+
+.about-text p {
+  font-size: 1.5rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+.about-media {
+  display: flex;
+  justify-content: space-between; /* Ensure proper space between image and quote */
+  align-items: stretch; /* Stretch the image and quote to be the same height */
+  gap: 2rem;
+  width: 100%;
+}
+
+.about-image {
+  height: 100%; /* Set the height to match the parent container */
+  width: auto; /* Give the image 40% of the container's width */
+  object-fit: cover; /* Ensure the image fills its container without stretching */
+  border-radius: 20px;
+}
+
+.quote {
+  width: 35%; /* Give the quote more width */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 20px;
+  border: 1px solid #121212;
+  text-align: center;
+}
+
+.quote p {
+  margin: 0.5rem 0;
+}
+
+.quote strong {
+  font-size: 1rem;
+  color: #555;
+}
+
+.profile-pic {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+  display: block;
+}
+
+/* Fund Info */
+.info-heading {
+  text-align: center;
+  margin-bottom: 2rem;
+  width: 100%; /* Ensure the heading spans the full width */
+}
+
+.info-heading h2 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.info-heading p {
+  font-size: 1rem;
+  color: #666;
+  max-width: 800px;
+  margin: 0 auto; /* Center the paragraph text */
+  line-height: 1.6;
+}
+
+/* Info Boxes Layout (Now horizontal) */
+.fund-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+}
+
+.fund-info-boxes {
+  display: flex;
+  justify-content: space-between; /* Space out the info boxes horizontally */
+  gap: 2rem; /* Adjust space between boxes */
+  width: 100%; /* Ensure the boxes take up the full width */
+  max-width: 1600px; /* Control the max width of the info-boxes container */
+  margin: 0 auto; /* Center the entire container */
+}
+
+/* Individual Info Box Styling */
+.info-box {
+  text-align: center;
+  padding: 4rem;
+  flex: 1; /* Ensure boxes expand evenly */
+  max-width: 600px; /* Set a max width for each box */
+}
+
+.info-box i {
+  background-color: #0fabe6; /* The circle background color */
+  border-radius: 50%; /* Makes the div a circle */
+  width: 80px; /* Set the width of the circle */
+  height: 80px; /* Set the height of the circle */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 1rem; /* Center the circle and add spacing */
+  color: white; /* Adjust the color of the icons */
+  margin-bottom: 1rem;
+}
+
+.info-box h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.info-box p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Urgent Fundraising Section */
+.urgent-fundraising {
+  text-align: center;
+  padding: 3rem;
+}
+
+.urgent-fundraising h2 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.urgent-fundraising p {
+  font-size: 1rem;
+  color: #666;
+  margin: 0 auto; /* Center the paragraph text */
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.fund-cards {
+  display: flex;
+  justify-content: flex-start; /* Align the cards to the left */
+  gap: 2rem;
+  flex-wrap: wrap; /* Allow wrapping if needed */
+}
+
+.fund-card {
+  width: 30%; /* Set the width for each card */
+  overflow: hidden;
+}
+
+.fund-details {
+  padding: 1rem;
+}
+
+.fund-details p {
+  font-size: 0.9rem;
+  color: #6c757d;
+  margin-bottom: 0.5rem;
+}
+
+.fund-video {
+  border-radius: 20px;  /* Add rounded corners */
+  overflow: hidden;      /* Ensures content inside stays within the rounded border */
+}
+
+.fund-details h4 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.fund-separator {
+  margin: 1rem 0;
+  border: 0;
+  border-top: 8px solid #0fabe6;
+  border-radius: 20px;
+  width: 100%;
+}
+
+.fund-separator-empty {
+  margin: 1rem 0;
+  border: 0;
+  border-top: 8px solid #08536e;
+  border-radius: 20px;
+  width: 100%;
+}
+
+.fund-progress {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+
+.fund-amount {
+  font-weight: bold;
+  color: #0fabe6;  /* Green color for the amount */
+}
+
+.fund-status {
+  font-weight: lighter;
+  color: #999999;   /* Light grey for the status text */
+}
+
+.faq-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center FAQ items horizontally */
+  justify-content: center; /* Center FAQ items vertically */
+  padding: 60px 20px;
+  text-align: left;
+  color: #004d40;
+}
+
+.faq-section h2 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.faq-section p {
+  font-size: 1rem;
+  color: #666;
+  max-width: 800px;
+  margin: 0 auto; /* Center the paragraph text */
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.faq-list {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  width: 100%; /* Make the FAQ item take the full width */
+  max-width: 1400px; /* Set a max width to keep it from stretching too wide */
+  margin: 0 auto 20px; /* Center the FAQ item horizontally */
+  padding: 20px;
+  border-radius: 20px;
+  border-bottom: 1px solid #ccc;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.3s ease;
+}
+
+.faq-item:hover {
+  background-color: #f7f5f5;
+}
+
+.faq-title-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.faq-item h3 {
+  font-size: 1.5rem;
+  margin: 0;
+  transition: color 0.5s ease;
+}
+
+.faq-item p {
+  margin: 10px 0 0;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+}
+
+.faq-item.open p {
+  max-height: 200px;
+  opacity: 1;
+}
+
+/* Toggle sign base style */
+.toggle-sign {
+  font-size: 2.5rem;
+  color: #00806a;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  position: relative;
+}
+
+.toggle-sign::before,
+.toggle-sign::after {
+  content: '';
+  position: absolute;
+  background-color: #0fabe6;
+  transition: all 0.3s ease;
+}
+
+/* Horizontal bar (minus symbol) */
+.toggle-sign::before {
+  width: 100%;
+  height: 3px; /* This is the horizontal bar */
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+/* Vertical bar (plus symbol) */
+.toggle-sign::after {
+  width: 3px;
+  height: 100%;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: height 0.3s ease; /* Transition for height and position */
+}
+
+/* On open (minus sign, removing vertical bar) */
+.faq-item.open .toggle-sign::after {
+  height: 0; /* Shrinks the vertical bar to 0 from top and bottom */
+  top: 50%; /* Moves it to the middle */
+  transform: translate(-50%, -50%); /* Centers it vertically */
+}
+
+/* Footer */
+.footer {
+  background-color: #f9f9f9;
+  padding: 50px 0;
+  color: #333;
+}
+
+/* Footer Image Section */
+.footer-image-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px; /* Adds space between the image and the footer */
+}
+
+.footer-image {
+  width: 100%;
+  max-width: 1400px;
+  height: auto;
+  border-radius: 10px; /* Optional: Adds rounded corners to the image */
+  object-fit: cover;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-brand {
+  max-width: 300px;
+}
+
+.footer-logo-img {
+  width: 100px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.footer-brand p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #666;
+}
+
+.footer-nav, .footer-address, .footer-contact {
+  max-width: 200px;
+}
+
+.footer-nav h4, .footer-address h4, .footer-contact h4 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.footer-nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-nav ul li {
+  margin-bottom: 10px;
+}
+
+.footer-nav ul li a {
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.footer-nav ul li a:hover {
+  color: #0fabe6;
+}
+
+.footer-address p, .footer-contact p {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+  padding: 20px 0;
+  border-top: 1px solid #ddd;
+}
+
+.footer-bottom p {
+  font-size: 12px;
+  color: #666;
+}
+
+.footer-bottom a {
+  text-decoration: none;
+  color: #0fabe6;
+  margin-left: 10px;
+  transition: color 0.3s ease;
+}
+
+.footer-bottom a:hover {
+  color: #333;
+}
