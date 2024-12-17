@@ -423,7 +423,7 @@ body {
   justify-content: center; /* Center FAQ items vertically */
   padding: 60px 20px;
   text-align: left;
-  color: #004d40;
+  color: #0fabe6;
 }
 
 .faq-section h2 {
@@ -491,7 +491,7 @@ body {
 /* Toggle sign base style */
 .toggle-sign {
   font-size: 2.5rem;
-  color: #00806a;
+  color: #0fabe6;
   display: inline-block;
   width: 20px;
   height: 20px;

@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import './App.css';
 import phsLogo from './images/Pathway-Housing-Solutions-Building-Futures-big.png';
 import keyInDoor from './images/key-in-door.jpg';
-import aboutImage from './images/phs-cover-img.png'; // Replace this with the path to the image you want to use in the About Us section
-import profilePic from './images/henri-baptiste-profile.jpg'; // Add this line for the profile picture
-import fundVideo from './videos/twittervid.com_Notts_TV_2c03c8.mp4';  // Import the video
-import videoThumbnail from './images/flo-interview.png';  // Import the thumbnail image
-import greyscale from './images/greyscale-male.jpg';  // Import the thumbnail image
+import aboutImage from './images/phs-cover-img.png';
+import profilePic from './images/henri-baptiste-profile.jpg';
+import fundVideo from './videos/twittervid.com_Notts_TV_2c03c8.mp4';
+import videoThumbnail from './images/flo-interview.png';
+import greyscale from './images/greyscale-male.jpg';
 
 function App() {
   const [openFAQ, setOpenFAQ] = useState(null);
@@ -15,31 +15,54 @@ function App() {
     setOpenFAQ(openFAQ === index ? null : index);
   };
 
+  const scrollToSection = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className="App">
       <header className="header">
         <div className="logo-container">
           <img src={phsLogo} alt="Pathway Housing Solutions Logo" className="logo-img" />
-        </div>        
+        </div>
         <nav className="nav-bar">
           <ul className="nav-links">
-            <li><a href="/">About Us</a></li>
-            <li><a href="/">Fundraising</a></li>
-            <li><a href="/">FAQs</a></li>
-            <li><a href="/">Contact Us</a></li>
+            <li>
+              <a href="#" className="nav-link" onClick={(e) => { e.preventDefault(); scrollToSection('about-us'); }}>
+                About Us
+              </a>
+            </li>
+            <li>
+              <a href="#" className="nav-link" onClick={(e) => { e.preventDefault(); scrollToSection('fund-info'); }}>
+                Fundraising
+              </a>
+            </li>
+            <li>
+              <a href="#" className="nav-link" onClick={(e) => { e.preventDefault(); scrollToSection('faq-section'); }}>
+                FAQs
+              </a>
+            </li>
+            <li>
+              <a href="#" className="nav-link" onClick={(e) => { e.preventDefault(); scrollToSection('footer'); }}>
+                Contact Us
+              </a>
+            </li>
           </ul>
         </nav>
         <button className="download-btn">Apply for Housing</button>
       </header>
 
-      <section className="hero">
+      <section id="hero" className="hero">
         <div
           className="hero-image"
           style={{ backgroundImage: `url(${keyInDoor})` }}
         >
           <div className="hero-text">
-            <h1>Building Pathways to Affordable<br/>and Secure Housing!</h1>
-            <p>Join us in creating lasting futures by providing affordable, sustainable housing solutions to individuals and families in need.<br/>Together, we build stronger communities and brighter tomorrows.</p>
+            <h1>Building Pathways to Affordable<br />and Secure Housing!</h1>
+            <p>Join us in creating lasting futures by providing affordable, sustainable housing solutions to individuals and families in need.<br />Together, we build stronger communities and brighter tomorrows.</p>
             <div className="scroll-indicator">
               <span>🡣</span>
             </div>
@@ -47,7 +70,7 @@ function App() {
           <div className="hero-stats">
             <div className="stat">
               <h2>£1600+</h2>
-              <p>Raised for those in housing need and homeless!<br/>By Flo Baker</p>
+              <p>Raised for those in housing need and homeless!<br />By Flo Baker</p>
             </div>
             <div className="stat">
               <h2>11,6K</h2>
@@ -61,7 +84,7 @@ function App() {
         </div>
       </section>
 
-      <section className="about-us">
+      <section id="about-us" className="about-us">
         <h2>About Us</h2>
         <div className="about-content-wrapper">
           <div className="about-content">
@@ -78,13 +101,12 @@ function App() {
               <div className="quote">
                 <p>“My research has enabled a wider section of the community to access material that has been academically scrutinised, providing an account of the power of collective action, and the role that place-based, community-led solutions could offer to marginalised communities. It presented a complementary historical account of a period in British history, researched through a non-white lens and utilising a mixed-method approach that includes oral history, archival material, and lived experience.”</p>
                 <img src={profilePic} alt="Henri Baptiste" className="profile-pic" />
-                <p><strong>Henri Baptiste</strong><br/>Founder of Pathway Housing Solutions</p>
+                <p><strong>Henri Baptiste</strong><br />Founder of Pathway Housing Solutions</p>
               </div>
             </div>
           </div>
         </div>
       </section>
-
 
       <section className="fund-info">
         <div className="info-heading">
@@ -99,7 +121,7 @@ function App() {
 
         <div className="fund-info-boxes">
           <div className="info-box">
-            <i class="fas fa-hands-helping fa-3x"></i>
+            <i className="fas fa-hands-helping fa-3x"></i>
             <h3>Empowering Communities</h3>
             <p>
               We believe that secure housing is the foundation for strong, thriving
@@ -110,7 +132,7 @@ function App() {
           </div>
 
           <div className="info-box">
-            <i class="fas fa-home fa-3x"></i>
+            <i className="fas fa-home fa-3x"></i>
             <h3>Affordable Housing for All</h3>
             <p>
               Our mission is to ensure that everyone, regardless of their background or
@@ -121,7 +143,7 @@ function App() {
           </div>
 
           <div className="info-box">
-            <i class="fas fa-lightbulb fa-3x"></i>
+            <i className="fas fa-lightbulb fa-3x"></i>
             <h3>Innovative Housing Models</h3>
             <p>
               At Pathway Housing Solutions, we are pioneering sustainable, cost-effective
@@ -133,7 +155,7 @@ function App() {
         </div>
       </section>
 
-      <section className="urgent-fundraising">
+      <section id="fund-info" className="urgent-fundraising">
         <h2>Urgent Fundraising!</h2>
         <p>Time is of the essence! Join our mission NOW to make an immediate impact. Every second counts!</p>
 
@@ -168,7 +190,7 @@ function App() {
         </div>
       </section>
 
-      <section className="faq-section">
+      <section id="faq-section" className="faq-section">
         <h2>Frequently Asked Questions</h2>
         <p>Quickly find answers to common queries in our comprehensive FAQ section.</p>
         <div className={`faq-item ${openFAQ === 0 ? 'open' : ''}`} onClick={() => toggleFAQ(0)}>
@@ -218,43 +240,56 @@ function App() {
         </div>
       </section>
 
-      <section className="footer-image-section">
-        <img src={greyscale} alt="Footer Image" className="footer-image" />
-      </section>
-
-      <footer className="footer">
+      <footer id="footer" className="footer">
         <div className="footer-content">
           <div className="footer-brand">
-          <img src={phsLogo} alt="Pathway Housing Solutions Logo" className="footer-logo-img" />
-            <p>Explore our extensive listings of properties, ranging from cozy apartments to luxurious estates, meticulously curated to cater to diverse tastes and lifestyles.</p>
+            <img src={phsLogo} alt="Pathway Housing Solutions Logo" className="footer-logo-img" />
+            <p>
+              Pathway Housing Solutions is dedicated to building affordable, secure, and sustainable housing solutions for individuals and families. Together, we create brighter futures.
+            </p>
           </div>
-          <div className="footer-nav">
-            <h4>Navigation</h4>
+          <div className="footer-links">
+            <h4>Quick Links</h4>
             <ul>
-              <li><a href="/">Overview</a></li>
-              <li><a href="/">Explore</a></li>
-              <li><a href="/">Analytics</a></li>
-              <li><a href="/">Unit</a></li>
-              <li><a href="/">Payment</a></li>
+              <li>
+                <a href="#" className="nav-link" onClick={(e) => { e.preventDefault(); scrollToSection('about-us'); }}>
+                  About Us
+                </a>
+              </li>
+              <li>
+                <a href="#" className="nav-link" onClick={(e) => { e.preventDefault(); scrollToSection('fund-info'); }}>
+                  Fundraising
+                </a>
+              </li>
+              <li>
+                <a href="#" className="nav-link" onClick={(e) => { e.preventDefault(); scrollToSection('faq-section'); }}>
+                  FAQs
+                </a>
+              </li>
+              <li>
+                <a href="#" className="nav-link" onClick={(e) => { e.preventDefault(); scrollToSection('footer'); }}>
+                  Contact Us
+                </a>
+              </li>
+              <li>
+                <a href="#" className="nav-link" onClick={(e) => { e.preventDefault(); scrollToSection('hero'); }}>
+                  Apply for Housing
+                </a>
+              </li>
             </ul>
           </div>
-          <div className="footer-address">
-            <h4>Address</h4>
-            <p>6391 Elgin St. Celina, Delaware 10299</p>
-            <p>3981 Ranchview Dr. Richardson, California 62639</p>
-          </div>
           <div className="footer-contact">
-            <h4>Contact</h4>
-            <p>Email: UrbanNest@gmail.com</p>
-            <p>Phone: (907) 555-0133</p>
+            <h4>Get in Touch</h4>
+            <p>Email: <a href="mailto:henri@pathwayhousingsolutions.org.uk">henri@pathwayhousingsolutions.org.uk</a></p>
+            <p>Phone: <a href="tel:+44 07910 758251">+44 07910 758251</a></p>
+            <p>Address: Howitt Buildings Lenton Boulevard Nottingham NG7 2BG</p>
           </div>
         </div>
         <div className="footer-bottom">
-          <p>Pathway Housing Solutions. All Rights Reserved. © Copyright 2024</p>
-          <p><a href="/">Privacy Policy</a> | <a href="/">Terms Of Use</a></p>
+          <p>© 2024 Pathway Housing Solutions | All Rights Reserved</p>
+          <p><a href="/">Privacy Policy</a> | <a href="/">Terms of Use</a></p>
         </div>
       </footer>
-
     </div>
   );
 }
